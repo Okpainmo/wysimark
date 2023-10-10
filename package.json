@@ -23,7 +23,7 @@
   },
   "scripts": {
     "-- build": "# build",
-    "build": "concurrently 'pnpm build:readme' 'pnpm build:code'",
+    "build": "node api.js && concurrently 'pnpm build:readme' 'pnpm build:code'",
     "build:code": "turbo build",
     "build:readme": "ts-node scripts/build-readme/index.ts",
     "-- changesets": "# changesets",
@@ -39,7 +39,7 @@
     "open:standalone": "pnpm --filter standalone-demo open",
     "open:vue": "pnpm --filter vue-demo open",
     "-- dev": "# dev",
-    "dev": "concurrently 'pnpm dev:react' 'pnpm dev:standalone' 'pnpm dev:vue'",
+    "dev": "node api.js && concurrently 'pnpm dev:react' 'pnpm dev:standalone' 'pnpm dev:vue'",
     "dev:react": "pnpm --filter react-demo start:local",
     "dev:standalone": "pnpm --filter standalone-demo start:local",
     "dev:vue": "pnpm --filter vue-demo start:local",
